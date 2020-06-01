@@ -2,12 +2,12 @@ import React from 'react'
 import {View, StyleSheet, Text, FlatList, Dimensions} from 'react-native'
 import MatchCard from '../components/MatchCard'
 
-export default MatchList =({footballDataArray})=>{
+export default MatchList =({footballDataArray, leagueScreen})=>{
  
 
     return(
-        <View style={styles.matchlist}>
-            <Text style={styles.listText}>Matches</Text>
+        <View style={!leagueScreen && styles.matchlist}>
+            <Text style={leagueScreen ? styles.makeOpacity : styles.listText}>Matches</Text>
             <FlatList
                 data={footballDataArray}
                 renderItem={({item}) => <MatchCard match={item} />}
@@ -27,5 +27,9 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         paddingLeft: 12,
         marginBottom: 7
+    },
+    makeOpacity: {
+        opacity: 0,
+        marginTop: -11
     }
 })

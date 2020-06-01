@@ -10,6 +10,7 @@ MaterialIcons.loadFont();
 export default MatchCard=({match})=>{
     const {thumbnail, date, side1, side2, competition} = match
     const momentTime = moment(date).fromNow()
+    const competitionName = competition.name.split(':')[1]
     return(
         <NativeTouch style={styles.match}>
             <View style={styles.cardImage}>
@@ -26,13 +27,13 @@ export default MatchCard=({match})=>{
 
             <View style={styles.dateCompetition}>
                 <View style={styles.date}>
-                <Ionicons name="md-calendar" name='ios-calendar' size={16}/>
+                <Ionicons name="md-calendar" name='ios-calendar' color='#a8adfc' size={16}/>
                     <Text style={styles.dateCompetitionText}>{momentTime}</Text> 
                 </View>
                 <View style={styles.competition}>
                     
-                    <Ionicons name="md-trophy" name='ios-trophy' size={16}/>
-                    <Text style={styles.dateCompetitionText}>{competition.name}</Text> 
+                    <Ionicons name="md-trophy" name='ios-trophy'  color='#a8adfc' size={16}/>
+                    <Text style={styles.dateCompetitionText}>{competitionName}</Text> 
                 </View>
             </View>
         </NativeTouch>

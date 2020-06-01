@@ -6,8 +6,7 @@ import MatchLists from '../components/MatchLIsts'
 import footballDataFetch from '../hooks/footballdataFetch'
 
 const  HomeScreen =()=>{
-
-  //const [footballData, isLoading, error] = footballDataFetch([])
+  
   const [matchData, setMatchData] = useState([])
   const [loading, setLoading] = useState(false)
 

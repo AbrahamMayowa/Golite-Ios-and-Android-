@@ -1,28 +1,67 @@
 import React from 'react'
-import {View, Text, StyleSheet, Dimensions} from 'react-native'
+import {View, Text, StyleSheet, Dimensions, TouchableNativeFeedback} from 'react-native'
 import NativeTouch from './NativeTouch'
+import { useNavigation } from '@react-navigation/native';
 
 export default Leagues =()=>{
+    const navigation = useNavigation()
     return(
         <View style={styles.leagues}>
             <View style={styles.leagueList}>
-                <NativeTouch style={[styles.league, styles.leagueLeft, styles.one]}>
+                <NativeTouch onPress={()=>{
+                    navigation.navigate('LeagueNav', {
+                        screen: 'League',
+                        params: {leagueCode: '15', leagueTitle: 'English Premier League'}
+                    })
+                    }}
+                    style={[styles.league, styles.leagueLeft, styles.one]}
+                >
                     <Text style={styles.leagueText}>English Premier League</Text>
                 </NativeTouch>
 
-                <NativeTouch style={[styles.league, styles.two]}>
+                <NativeTouch
+                onPress={()=>{
+                    navigation.navigate('LeagueNav', {
+                        screen: 'League',
+                        params:  {leagueCode: '11', leagueTitle: 'BundesLiga'}
+                    })
+                    }}
+                style={[styles.league, styles.two]}>
                 <Text style={styles.leagueText}>BundesLiga</Text>
                 </NativeTouch>
 
-                <NativeTouch style={[styles.league, styles.leagueLeft, styles.three]}>
+                <NativeTouch
+                onPress={()=>{
+                    navigation.navigate('LeagueNav', {
+                        screen: 'League',
+                        params:  {leagueCode: '13', leagueTitle: 'Seria A'}
+                    })
+                    }}
+                style={[styles.league, styles.leagueLeft, styles.three]}
+                >
                 <Text style={styles.leagueText}>Seria A</Text>
                 </NativeTouch>
 
-                <NativeTouch style={[styles.league, styles.four]}>
+                <NativeTouch 
+                onPress={()=>{
+                    navigation.navigate('LeagueNav', {
+                        screen: 'League',
+                        params:  {leagueCode: '10', leagueTitle: 'League 1'}
+                    })
+                    }}
+                style={[styles.league, styles.four]}
+                >
                 <Text style={styles.leagueText}>League One</Text>
                 </NativeTouch>
 
-                <NativeTouch style={[styles.league, styles.leagueLeft, styles.five]}>
+                <NativeTouch 
+                onPress={()=>{
+                    navigation.navigate('LeagueNav', {
+                        screen: 'League',
+                        params:  {leagueCode: '14', leagueTitle: 'La Liga'}
+                    })
+                    }}
+                style={[styles.league, styles.leagueLeft, styles.five]}>
                 <Text style={styles.leagueText}>La Liga</Text>
                 </NativeTouch>
             </View>
