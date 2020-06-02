@@ -64,6 +64,20 @@ export default Leagues =()=>{
                 style={[styles.league, styles.leagueLeft, styles.five]}>
                 <Text style={styles.leagueText}>La Liga</Text>
                 </NativeTouch>
+
+                <NativeTouch 
+                onPress={()=>{
+                    navigation.navigate('LeagueNav', {
+                        screen: 'League',
+                        params:  {leagueCode: '16', leagueTitle: 'Eredivisie'}
+                    })
+                    }}
+                style={[styles.league, styles.six]}>
+                <Text style={styles.leagueText}>Eredivisie</Text>
+                </NativeTouch>
+                
+
+                
             </View>
             
         </View>
@@ -95,7 +109,7 @@ const styles = StyleSheet.create({
         height: Dimensions.get('window').width * 0.90 * 0.40,
         justifyContent: 'flex-end',
         alignItems: 'flex-start',
-        marginBottom: 8,
+        marginBottom: 10,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -125,6 +139,11 @@ const styles = StyleSheet.create({
     five: {
         backgroundColor: '#7077e5'
     },
+    six: {
+        backgroundColor: '#f7ec'
+    },
+    
+
     leagueText:{
         fontSize: 17,
         //fontFamily: 'Roboto_Bold',
